@@ -40,11 +40,11 @@ public final class App {
         SOAPBody body = message.getSOAPBody();
         JAXBContext context = JAXBContext.newInstance(OTAHotelResNotifRQ.class);
         Unmarshaller unmarshaller = context.createUnmarshaller();
-        JAXBElement<OTAHotelResNotifRQ> root = unmarshaller
+        JAXBElement<OTAHotelResNotifRQ> node = unmarshaller
             .unmarshal((Node)body.getElementsByTagName("OTA_HotelResNotifRQ").item(0), OTAHotelResNotifRQ.class);
-        OTAHotelResNotifRQ test = root.getValue();
+        OTAHotelResNotifRQ payload = node.getValue();
         Gson gson = new Gson();
-        String val = gson.toJson(test);
-        System.out.println(val.toString());
+        String val = gson.toJson(payload);
+        System.out.println(val);
      }
 }
