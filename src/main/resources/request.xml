@@ -1,179 +1,106 @@
-<OTA_HotelResNotifRQ xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" EchoToken="2602b178-5a4d-4926-9786-9c7c3dab6225" TimeStamp="2019-05-02T18:30:05.1075698+00:00" Version="5.000" ResStatus="Commit">
-             
-    <POS>
-                   
+
+    <OTA_HotelResNotifRQ EchoToken="34ca86b8-d3f7-483d-8c76-97d9456154cf" TimeStamp="2019-04-29T19:39:41.3553471+00:00" Version="5.000" ResStatus="Commit" xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <POS>
         <Source>
-                          
-            <RequestorID Type="22" ID="Synxis" />
-                          
-            <BookingChannel Type="7" Primary="true">
-                                 
-                <CompanyName Code="GC">Booking Engine</CompanyName>
-                              
-            </BookingChannel>
-                        
+          <RequestorID Type="22" ID="Synxis">
+          </RequestorID>
+          <BookingChannel Type="7" Primary="true">
+            <CompanyName Code="GC">Booking Engine</CompanyName>
+          </BookingChannel>
         </Source>
-                
-    </POS>
-            
-    <HotelReservations>
-                   
-        <HotelReservation RoomStayReservation="true" CreateDateTime="2019-05-02T18:27:26" CreatorID="Synxis" ResStatus="Reserved">
-                          
-            <UniqueID Type="14" ID="XXXXXIC000059" />
-                          
-            <RoomStays>
-                                 
-                <RoomStay MarketCode="RAC">
-                                        
-                    <RatePlans>
-                                               
-                        <RatePlan RatePlanCode="RACK">
-                                                      
-                            <RatePlanInclusions TaxInclusive="false" />
-                                                   
-                        </RatePlan>
-                                            
-                    </RatePlans>
-                                        
-                    <RoomRates>
-                                               
-                        <RoomRate RoomTypeCode="DL1Q" NumberOfUnits="1" RatePlanCode="RACK" RatePlanCategory="1LRA">
-                                                      
-                            <Rates>
-                                                              
-                                <Rate EffectiveDate="2019-05-23" ExpireDate="2019-05-24" RateTimeUnit="Day" UnitMultiplier="1">
-                                                                    
-                                    <Base AmountBeforeTax="140" CurrencyCode="USD">
-                                                                           
-                                        <Taxes Amount="0" CurrencyCode="USD" />
-                                                                        
-                                    </Base>
-                                                                 
-                                </Rate>
-                                                          
-                            </Rates>
-                                                   
-                        </RoomRate>
-                                            
-                    </RoomRates>
-                                        
-                    <GuestCounts IsPerRoom="true">
-                                                
-                        <GuestCount AgeQualifyingCode="10" Count="1" />
-                                            
-                    </GuestCounts>
-                                        
-                    <TimeSpan Start="2019-05-23" End="2019-05-24" />
-                                        
-                    <Guarantee GuaranteeCode="TAG" GuaranteeType="GuaranteeRequired">
-                                                
-                        <GuaranteeDescription>
-                                                      
-                            <Text>Guarantee to Travel Agency</Text>
-                                                   
-                        </GuaranteeDescription>
-                                            
-                    </Guarantee>
-                                        
-                    <Total AmountBeforeTax="140" CurrencyCode="USD">
-                                               
-                        <Taxes Amount="0" CurrencyCode="USD" />
-                                            
-                    </Total>
-                                        
-                    <BasicPropertyInfo ChainCode="SITC" HotelCode="XXXXX" />
-                                        
-                    <ResGuestRPHs>
-                                               
-                        <ResGuestRPH RPH="1" />
-                                            
-                    </ResGuestRPHs>
-                                        
-                    <Comments>
-                                               
-                        <Comment GuestViewable="true">
-                                                      
-                            <Text />
-                                                   
-                        </Comment>
-                                             
-                    </Comments>
-                                     
-                </RoomStay>
-                              
-            </RoomStays>
-                          
-            <ResGuests>
-                                 
-                <ResGuest ResGuestRPH="1" PrimaryIndicator="true">
-                                        
-                    <Profiles>
-                                               
-                        <ProfileInfo>
-                                                       
-                            <UniqueID Type="1" ID="XXXXXGN000048" ID_Context="crs">
-                                                             
-                                <CompanyName Code="6835" CodeContext="chain" />
-                                                          
-                            </UniqueID>
-                                                      
-                            <Profile ProfileType="1">
-                                                              
-                                <Customer>
-                                                                    
-                                    <PersonName>
-                                                                           
-                                        <NamePrefix>Mr.</NamePrefix>
-                                                                           
-                                        <GivenName>Success</GivenName>
-                                                                           
-                                        <Surname>Response</Surname>
-                                                                        
-                                    </PersonName>
-                                                                    
-                                    <Telephone PhoneTechType="1" PhoneNumber="3235381234" FormattedInd="false" DefaultInd="true" />
-                                                                    
-                                    <Email>michael@somewhere.com</Email>
-                                                                    
-                                    <Address Type="1" Remark="Personal">
-                                                                           
-                                        <AddressLine>1320 Londonderry Pl</AddressLine>
-                                                                           
-                                        <CityName>West Hollywood</CityName>
-                                                                           
-                                        <PostalCode>90069</PostalCode>
-                                                                           
-                                        <StateProv StateCode="CA" />
-                                                                           
-                                        <CountryName Code="US" />
-                                                                        
-                                    </Address>
-                                                                 
-                                </Customer>
-                                                          
-                            </Profile>
-                                                   
-                        </ProfileInfo>
-                                            
-                    </Profiles>
-                                     
-                </ResGuest>
-                              
-            </ResGuests>
-                          
-            <ResGlobalInfo>
-                                 
-                <HotelReservationIDs>
-                                        
-                    <HotelReservationID ResID_Type="14" ResID_Value="XXXXXIC000059" ResID_Source="CRS" ForGuest="true" />
-                                     
-                </HotelReservationIDs>
-                               
-            </ResGlobalInfo>
-                       
+      </POS>
+      <HotelReservations>
+        <HotelReservation RoomStayReservation="true" CreateDateTime="2019-04-29T19:36:51" CreatorID="Synxis" ResStatus="Reserved">
+          <UniqueID Type="14" ID="XXXXXIC000041">
+          </UniqueID>
+          <RoomStays>
+            <RoomStay MarketCode="RAC">
+              <RatePlans>
+                <RatePlan RatePlanCode="RACK">
+                  <RatePlanInclusions TaxInclusive="false">
+                  </RatePlanInclusions>
+                </RatePlan>
+              </RatePlans>
+              <RoomRates>
+                <RoomRate RoomTypeCode="DL1Q" NumberOfUnits="1" RatePlanCode="RACK" RatePlanCategory="1LRA">
+                  <Rates>
+                    <Rate EffectiveDate="2019-08-03" ExpireDate="xxxx" RateTimeUnit="Day" UnitMultiplier="1">
+                      <Base AmountBeforeTax="140" CurrencyCode="USD">
+                        <Taxes Amount="0" CurrencyCode="USD">
+                        </Taxes>
+                      </Base>
+                    </Rate>
+                  </Rates>
+                </RoomRate>
+              </RoomRates>
+              <GuestCounts IsPerRoom="true">
+                <GuestCount AgeQualifyingCode="10" Count="1">
+                </GuestCount>
+              </GuestCounts>
+              <TimeSpan Start="2019-08-03" End="2019-08-04">
+              </TimeSpan>
+              <Guarantee GuaranteeCode="TAG" GuaranteeType="GuaranteeRequired">
+                <GuaranteeDescription>
+                  <Text>Guarantee to Travel Agency</Text>
+                </GuaranteeDescription>
+              </Guarantee>
+              <Total AmountBeforeTax="140" CurrencyCode="USD">
+                <Taxes Amount="0" CurrencyCode="USD">
+                </Taxes>
+              </Total>
+              <BasicPropertyInfo ChainCode="SITC" HotelCode="1588">
+              </BasicPropertyInfo>
+              <ResGuestRPHs>
+                <ResGuestRPH RPH="1">
+                </ResGuestRPH>
+              </ResGuestRPHs>
+              <Comments>
+                <Comment GuestViewable="true">
+                  <Text>
+                  </Text>
+                </Comment>
+              </Comments>
+            </RoomStay>
+          </RoomStays>
+          <ResGuests>
+            <ResGuest ResGuestRPH="1" PrimaryIndicator="true">
+              <Profiles>
+                <ProfileInfo>
+                  <UniqueID Type="1" ID="XXXXXGN000032" ID_Context="crs">
+                    <CompanyName Code="6835" CodeContext="chain">
+                    </CompanyName>
+                  </UniqueID>
+                  <Profile ProfileType="1">
+                    <Customer>
+                      <PersonName>
+                        <NamePrefix>Mr.</NamePrefix>
+                        <GivenName>Test</GivenName>
+                        <Surname>Test</Surname>
+                      </PersonName>
+                      <Telephone PhoneTechType="1" PhoneNumber="3235387777" FormattedInd="false" DefaultInd="true">
+                      </Telephone>
+                      <Email>michael@theguestbook.com</Email>
+                      <Address Type="1" Remark="Personal">
+                        <AddressLine>555 Ocean Ave</AddressLine>
+                        <CityName>Westhollywood</CityName>
+                        <PostalCode>90069</PostalCode>
+                        <StateProv StateCode="CA">
+                        </StateProv>
+                        <CountryName Code="US">
+                        </CountryName>
+                      </Address>
+                    </Customer>
+                  </Profile>
+                </ProfileInfo>
+              </Profiles>
+            </ResGuest>
+          </ResGuests>
+          <ResGlobalInfo>
+            <HotelReservationIDs>
+              <HotelReservationID ResID_Type="14" ResID_Value="XXXXXIC000041" ResID_Source="CRS" ForGuest="true">
+              </HotelReservationID>
+            </HotelReservationIDs>
+          </ResGlobalInfo>
         </HotelReservation>
-                
-    </HotelReservations>
-         
-</OTA_HotelResNotifRQ>
+      </HotelReservations>
+    </OTA_HotelResNotifRQ>
