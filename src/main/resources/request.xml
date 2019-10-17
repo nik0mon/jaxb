@@ -1,4 +1,23 @@
-
+<Envelope xmlns="http://www.w3.org/2003/05/soap-envelope">
+  <soap2:Header xmlns:soap2="http://www.w3.org/2003/05/soap-envelope" xmlns:htng="http://htng.org/1.3/Header/" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wss="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:htnga="http://htng.org/PWSWG/2007/02/AsyncHeaders" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <wsa:Action>http://htng.org/PWSWG/2010/12/ReservationSynch_SubmitRequest</wsa:Action>
+    <wsa:ReplyTo>
+      <wsa:Address>http://www.w3.org/2005/08/addressing/anonymous</wsa:Address>
+    </wsa:ReplyTo>
+    <htnga:ReplyTo>
+      <wsa:Address>HTTPS://INTEGCERT.SYNXIS.COM/INTERFACE/OTA2010AV2/OTA2010A.SVC</wsa:Address>
+    </htnga:ReplyTo>
+    <wss:Security mustUnderstand="1">
+      <wss:UsernameToken>
+        <wss:Username>YOUR ENDPOINT USERNAME</wss:Username>
+        <wss:Password>YOUR ENDPOINT PASSWORD</wss:Password>
+      </wss:UsernameToken>
+    </wss:Security>
+    <wsa:MessageID>ace76564-8f03-4201-8e45-cd2fba2bb6ce</wsa:MessageID>
+    <htnga:CorrelationID>ace76564-8f03-4201-8e45-cd2fba2bb6ce</htnga:CorrelationID>
+    <wsa:To>https://YOUR ENDPOINT WELL SEND TO</wsa:To>
+  </soap2:Header>
+  <Body>
     <OTA_HotelResNotifRQ EchoToken="34ca86b8-d3f7-483d-8c76-97d9456154cf" TimeStamp="2019-04-29T19:39:41.3553471+00:00" Version="5.000" ResStatus="Commit" xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <POS>
         <Source>
@@ -104,3 +123,5 @@
         </HotelReservation>
       </HotelReservations>
     </OTA_HotelResNotifRQ>
+  </Body>
+</Envelope>
