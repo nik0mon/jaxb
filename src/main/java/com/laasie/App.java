@@ -1,39 +1,53 @@
 package com.laasie;
 
-import java.io.File;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
-import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
-import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
-import javax.xml.transform.stream.StreamSource;
-import javax.xml.validation.Schema;
-import javax.xml.validation.SchemaFactory;
+import javax.xml.soap.MessageFactory;
+import javax.xml.soap.SOAPBody;
+import javax.xml.soap.SOAPConstants;
+import javax.xml.soap.SOAPMessage;
 
-import org.xml.sax.SAXException;
-
+import com.google.gson.Gson;
 import altres.wsdl.OTAHotelResNotifRQ;
 /**
  * Hello world!
  */
 public final class App {
-    private App() {
-    }
+    public static void main(String[] args) throws IOException{
+        // SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+        // Schema schema = schemaFactory.newSchema(new File("/Users/nik0mon/workspace/staywanderful/java/new-alt-reservation/new-alt-reservation/src/main/resources/altres.wsdl"));
+        // // unmarshaller.setSchema(schema);
+        byte[] bytes = Files.readAllBytes(
+                Paths.get("/Users/nikomon/workspace/staywanderful/java/wips/jaxb/src/main/resources/request.xml")
+        );
+        String jsonPayload = SoapBodytoJson(bytes);
+        System.out.println(jsonPayload);
+     }
 
-    /**
-     * Says hello to the world.
-     * @param args The arguments of the program.
-     */
-    public static void main(String[] args) throws JAXBException, SAXException{
-        JAXBContext context = JAXBContext.newInstance(OTAHotelResNotifRQ.class);        
-        Unmarshaller unmarshaller = context.createUnmarshaller();
-        SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-        Schema schema = schemaFactory.newSchema(new File("/Users/nik0mon/workspace/staywanderful/java/new-alt-reservation/new-alt-reservation/src/main/resources/altres.wsdl"));
-        unmarshaller.setSchema(schema);
-        File request = new File("/Users/nik0mon/workspace/staywanderful/java/new-alt-reservation/new-alt-reservation/src/main/resources/request.xml");
-        JAXBElement<OTAHotelResNotifRQ> root = unmarshaller.unmarshal(new StreamSource(request), OTAHotelResNotifRQ.class);
-        OTAHotelResNotifRQ test = root.getValue();
-        System.out.println(test);
-    }
+     public static String SoapBodytoJson(byte[] payloadBytes){
+        String jsonPayload = "";
+        try {
+            SOAPMessage message = MessageFactory
+                .newInstance(SOAPConstants.SOAP_1_2_PROTOCOL)
+                .createMessage(null, new ByteArrayInputStream(payloadBytes));
+            SOAPBody body = message.getSOAPBody();
+            JAXBContext context = JAXBContext.newInstance(OTAHotelResNotifRQ.class);
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            JAXBElement<OTAHotelResNotifRQ> node = unmarshaller
+                .unmarshal(body.getElementsByTagName("OTA_HotelResNotifRQ").item(0), OTAHotelResNotifRQ.class);
+            OTAHotelResNotifRQ payload = node.getValue();
+            Gson gson = new Gson();
+            jsonPayload = gson.toJson(payload);
+        }
+        catch(Exception e){
+            System.out.println(e.getLocalizedMessage());
+        }
+        return jsonPayload;
+     }
 }
